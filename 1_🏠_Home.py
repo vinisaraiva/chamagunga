@@ -1,5 +1,4 @@
 import streamlit as st
-from streamlit_option_menu import option_menu
 from PIL import Image
 import pandas as pd
 from openpyxl import Workbook
@@ -29,7 +28,8 @@ selected_parameter = st.sidebar.selectbox('Selecione o Parametero a ser analisad
                                           'PH', 'CONDUTIVIDADE', 'TURBIDEZ (NTU)', 'TEMPERATURA'], disabled=True)
 
 st.sidebar.write("---")
-st.sidebar.success("Desenvolvido por Vinicius Saraiva para a disciplina: ANÁLISE E MONITORAMENTO DE ECOSSISTEMAS AQUÁTICOS")
+st.sidebar.success(
+    "Desenvolvido por Vinicius Saraiva para a disciplina: ANÁLISE E MONITORAMENTO DE ECOSSISTEMAS AQUÁTICOS")
 
 
 with st.container():
