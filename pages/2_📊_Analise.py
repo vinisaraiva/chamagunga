@@ -19,11 +19,7 @@ st.set_page_config(
 st.title("Analisando parâmetros físicos da água")
 st.write("Rio Chamagunga")
 
-
-@st.cache_data
-def carregar_dados():
-    data = pd.read_csv("riochamagunga.csv", encoding="ISO-8859-1", sep=';')
-    return data
+data = pd.read_csv("riochamagunga.csv", encoding="ISO-8859-1", sep=';')
 
 
 # Multi-select checkbox to choose points to display
