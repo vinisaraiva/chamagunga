@@ -109,8 +109,6 @@ st.plotly_chart(fig, use_container_width=True)
 
 # st.plotly_chart(hist_fig, use_container_width=True)
 
-openai.api_key = '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'
-
 
 # Get parameter values for analysis using OpenAI GPT-3.5
 parameter_values = filtered_data[y_column].tolist()
@@ -122,7 +120,7 @@ completion = openai.ChatCompletion.create(
     model="gpt-3.5-turbo",
     messages=[
         {"role": "user",
-            "content": f'O dataset a seguir corresponde a analise de parametros de qualidade da agua, foi coletada agua para analise em 6 pontos diferentes do Rio Chamagunga. O parametro selecionado é {selected_parameter}, o valor encontrado foi {parameter_values}. De acordo com o CONAMA, os valores ideais para esse paramentro, fica entre {conama_values[0]} e {conama_values[1]}.'}
+            "content": f'Responda separando por paragrafos, sendo que cada paragrafo o titulo estara em uma fonte maior e em negrito. O primeiro paragrafo o titulo é Você sabe o que é {selected_parameter} ? e após o titulo  úle uma linha e fale sobre esse parametro de forma curta explicando-o. O segundo paragrafo o titulo é: Qual a importancia do {selected_parameter} ?, em seguida pule uma linha e fale a importancia desse parametro em um rio com classificacao classe 2. No terceiro paragrafo o titulo é Analise dos dados, após o titulo pule uma linha e faça uma analise dos dados, lembrando que O dataset a seguir corresponde a analise de parametros de qualidade da agua, foi coletada agua para analise em 6 pontos diferentes do Rio Chamagunga. O parametro selecionado é {selected_parameter}, o valor encontrado foi {parameter_values}. De acordo com o CONAMA, os valores ideais para esse paramentro, fica entre {conama_values[0]} e {conama_values[1]}.'}
     ]
 )
 
