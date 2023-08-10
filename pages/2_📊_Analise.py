@@ -1,7 +1,6 @@
 import streamlit as st
 from PIL import Image
 import pandas as pd
-from openpyxl import Workbook
 import plotly.graph_objects as go
 import plotly.express as px
 import plotly.figure_factory as ff
@@ -109,7 +108,10 @@ st.plotly_chart(fig, use_container_width=True)
 
 # st.plotly_chart(hist_fig, use_container_width=True)
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 417d7a0db3989fcd0a71595d5ccf3ebdbe9cd138
 # Get parameter values for analysis using OpenAI GPT-3.5
 parameter_values = filtered_data[y_column].tolist()
 conama_values = parameter_ranges[selected_parameter]

@@ -2,7 +2,10 @@ openai==0.27.8
 openpyxl==3.1.2
 pandas==2.0.3
 Pillow==9.5.0
+<<<<<<< HEAD
 Pillow==10.0.0
+=======
+>>>>>>> 417d7a0db3989fcd0a71595d5ccf3ebdbe9cd138
 plotly==5.15.0
 Requests==2.31.0
 streamlit==1.24.1
