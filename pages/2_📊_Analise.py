@@ -131,25 +131,3 @@ st.subheader('Análise inicial')
 st.write(completion['choices'][0]['message']['content'])
 
 
-# HTML e CSS
-st.markdown("""
-    <style>
-        .card {
-            border: 1px solid #ddd;
-            padding: 22px;
-            margin: 10px 0;
-            border-radius: 10px;
-        }
-    </style>
-""", unsafe_allow_html=True)
-
-# Card 1
-with col1:
-    st.markdown(f"<div class='card'><h2>{R1['título']}</h2><p>{R1['resposta']}</p></div>", unsafe_allow_html=True)
-
-# Card 2
-with col2:
-    st.markdown(f"<div class='card'><h2>{R2['título']}</h2><p>{R2['resposta']}</p></div>", unsafe_allow_html=True)
-
-# Card 3
-st.markdown(f"<div class='card'><h2>{R3['título']}</h2><p>{R3['resposta']}</p></div>", unsafe_allow_html=True)
