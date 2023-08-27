@@ -128,6 +128,6 @@ completion = openai.ChatCompletion.create(
 
 # Display the AI response
 st.subheader('Análise inicial')
-st.write(completion['choices'][0]['message']['content']['R1'])
+st.write(completion['choices'][0]['message']['content'])
 
 
