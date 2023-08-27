@@ -8,11 +8,17 @@ import requests
 import openai
 
 
+
+
 st.set_page_config(
     page_title="Analise dos Dados Coletados",
     page_icon="📑",
     layout="wide"
 )
+
+
+with open('style.css') as f:
+    st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
 
 st.title("Analisando parâmetros físicos da água")
 st.write("Rio Chamagunga")
@@ -107,7 +113,7 @@ st.plotly_chart(fig, use_container_width=True)
 # st.plotly_chart(fig1, use_container_width=True)
 
 # st.plotly_chart(hist_fig, use_container_width=True)
-
+# Código Python
 
 # Get parameter values for analysis using OpenAI GPT-3.5
 parameter_values = filtered_data[y_column].tolist()
@@ -119,10 +125,34 @@ completion = openai.ChatCompletion.create(
     model="gpt-3.5-turbo",
     messages=[
         {"role": "user",
-            "content": f'Responda separando por paragrafos, sendo que cada paragrafo o titulo estara em uma fonte maior e em negrito. O primeiro paragrafo o titulo é Você sabe o que é {selected_parameter} ? e após o titulo  úle uma linha e fale sobre esse parametro de forma curta explicando-o. O segundo paragrafo o titulo é: Qual a importancia do {selected_parameter} ?, em seguida pule uma linha e fale a importancia desse parametro em um rio. No terceiro paragrafo o titulo é Analise dos dados, após o titulo pule uma linha e faça uma analise dos dados utilizando as informacoes obtidas com a coleta da agua desse rio, foi coletada agua para analise em 6 pontos diferentes do Rio Chamagunga. O parametro selecionado é {selected_parameter}, o valor encontrado foi {parameter_values}. De acordo com o CONAMA, os valores ideais para esse paramentro, fica entre {conama_values[0]} e {conama_values[1]}. lembrando que deve citar apenas os valores dos pontos informados, da seguinte forma: ponto: valor, com o nome de cada ponto em negrito'}
+            "content": f'Responda separando por array de dicionario, gere tres arrays, sendo R1 para o primeiro paragrafo, R2 para o segundo, e R3 para o terceiro, cada array deve conter o titulo e a resposta. sendo que cada paragrafo o titulo estara em uma fonte maior e em negrito. O primeiro paragrafo o titulo é Você sabe o que é {selected_parameter} ? e após o titulo  pule uma linha e fale sobre esse parametro de forma curta explicando-o. O segundo paragrafo o titulo é: Qual a importancia do {selected_parameter} ?, em seguida pule uma linha e fale a importancia desse parametro em um rio. No terceiro paragrafo o titulo é Analise dos dados, após o titulo pule uma linha e faça uma analise dos dados utilizando as informacoes obtidas com a coleta da agua desse rio, foi coletada agua para analise em 6 pontos diferentes do Rio Chamagunga. O parametro selecionado é {selected_parameter}, o valor encontrado foi {parameter_values}. De acordo com o CONAMA, os valores ideais para esse paramentro, fica entre {conama_values[0]} e {conama_values[1]}. lembrando que deve citar apenas os valores dos pontos selecinados, da seguinte forma: ponto: valor, com o nome de cada ponto em negrito'}
     ]
 )
 
 # Display the AI response
 st.subheader('Análise inicial')
 st.write(completion['choices'][0]['message']['content'])
+
+
+# HTML e CSS
+st.markdown("""
+    <style>
+        .card {
+            border: 1px solid #ddd;
+            padding: 22px;
+            margin: 10px 0;
+            border-radius: 10px;
+        }
+    </style>
+""", unsafe_allow_html=True)
+
+# Card 1
+with col1:
+    st.markdown(f"<div class='card'><h2>{R1['título']}</h2><p>{R1['resposta']}</p></div>", unsafe_allow_html=True)
+
+# Card 2
+with col2:
+    st.markdown(f"<div class='card'><h2>{R2['título']}</h2><p>{R2['resposta']}</p></div>", unsafe_allow_html=True)
+
+# Card 3
+st.markdown(f"<div class='card'><h2>{R3['título']}</h2><p>{R3['resposta']}</p></div>", unsafe_allow_html=True)
