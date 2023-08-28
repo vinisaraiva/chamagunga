@@ -131,7 +131,7 @@ completion = openai.ChatCompletion.create(
     model="gpt-3.5-turbo",
     messages=[
        {"role": "user",
-            "content": f'Responda separando por paragrafos sendo que cada paragrafo o titulo estara em uma fonte maior e em negrito. O primeiro paragrafo o titulo é "Você sabe o que é {selected_parameter}<END> ?" e após o titulo  pule uma linha e fale sobre esse parametro de forma curta explicando-o. O segundo paragrafo o titulo é: "Qual a importancia do {selected_parameter}<END> ?", em seguida pule uma linha e fale a importancia desse parametro em um rio. No terceiro paragrafo o titulo é Analise dos dados, após o titulo pule uma linha e faça uma analise dos dados utilizando as informacoes obtidas com a coleta da agua desse rio, foi coletada agua para analise em 6 pontos diferentes do Rio Chamagunga. O parametro selecionado é {selected_parameter}, o valor encontrado foi {parameter_values}. De acordo com o CONAMA, os valores ideais para esse paramentro, fica entre {conama_values[0]} e {conama_values[1]}. lembrando que deve citar apenas os valores dos pontos selecinados, da seguinte forma: ponto: valor, com o nome de cada ponto em negrito. A resposta deve vir no formato json, com a seguinte estrutura:a chave se chama respostas e contem id da resposta, titulo da resposta, conteudo da resposta'}
+            "content": f'Responda separando por paragrafos sendo que cada paragrafo o titulo estara em uma fonte maior e em negrito. O primeiro paragrafo o titulo é "Você sabe o que é {selected_parameter} ?" e após o titulo  pule uma linha e fale sobre esse parametro de forma curta explicando-o. O segundo paragrafo o titulo é: "Qual a importancia do {selected_parameter} ?", em seguida pule uma linha e fale a importancia desse parametro em um rio. No terceiro paragrafo o titulo é "Analise dos dados", após o titulo pule uma linha e faça uma analise dos dados utilizando as informacoes obtidas com a coleta da agua desse rio, foi coletada agua para analise em 6 pontos diferentes do Rio Chamagunga. O parametro selecionado é {selected_parameter}, o valor encontrado foi {parameter_values}. De acordo com o CONAMA, os valores ideais para esse paramentro, fica entre {conama_values[0]} e {conama_values[1]}. lembrando que deve citar apenas os valores dos pontos selecinados, da seguinte forma: ponto: valor, com o nome de cada ponto em negrito. A resposta deve vir no formato json, com a seguinte estrutura:a chave se chama respostas e contem id da resposta, titulo da resposta, conteudo da resposta'}
     ]
 )
 
@@ -146,7 +146,7 @@ meusdados = respondendo['respostas']
 
 # Função para criar um card
 def create_card(col, titulo, conteudo):
-    col.write('## ' + titulo)
+    col.write('# ' + titulo)
     col.write(conteudo)
 
 
