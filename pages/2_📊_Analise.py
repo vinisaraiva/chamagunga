@@ -1,4 +1,4 @@
-import streamlit as st
+tyimport streamlit as st
 from PIL import Image
 import pandas as pd
 import plotly.graph_objects as go
@@ -182,7 +182,6 @@ st.write("")
 st.write("")
 
 # Criar uma coluna para o terceiro cartão
-col3 = st.column(1)
 create_card(col3, meusdados[2]['titulo'], meusdados[2]['conteudo'])
 
 
