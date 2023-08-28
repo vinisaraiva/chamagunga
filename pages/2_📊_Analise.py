@@ -143,7 +143,7 @@ st.subheader('Análise inicial')
 response = json.loads(completion['choices'][0]['message']['content'])
 respondendo = response
 meusdados = respondendo['respostas']
-st.write(meusdados[0])
+
 # Função para criar um card
 def create_card(col, titulo, conteudo):
     col.write('## ' + titulo)
@@ -154,11 +154,11 @@ def create_card(col, titulo, conteudo):
 col1, col2 = st.columns(2)
 
 # Adicionar os dois primeiros cards na primeira linha
-create_card(col1, meusdados['respostas'][0]['titulo'], meusdados['respostas'][0]['conteudo'])
-create_card(col2, meusdados['respostas'][1]['titulo'], meusdados['respostas'][1]['conteudo'])
+create_card(col1, meusdados[0]['titulo'], meusdados[0]['conteudo'])
+create_card(col2, meusdados[1]['titulo'], meusdados[1]['conteudo'])
 
 # Adicionar o terceiro card na segunda linha
 col3 = st.empty()
-create_card(col3, meusdados['respostas'][2]['titulo'], meusdados['respostas'][2]['conteudo'])
+create_card(col3, meusdados[2]['titulo'], meusdados[2]['conteudo'])
 
 
