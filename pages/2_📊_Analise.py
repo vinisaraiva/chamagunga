@@ -140,8 +140,8 @@ completion = openai.ChatCompletion.create(
 # Extrair as respostas do objeto 'content'
 
 response = json.loads(completion['choices'][0]['message']['content'])
-respondendo = response
-meusdados = respondendo['respostas']
+meusdados = response
+#meusdados = respondendo['respostas']
 st.write(completion)
 st.write(respondendo)
 st.write(meusdados)
@@ -187,7 +187,7 @@ st.subheader('Análise do gráfico')
 
 col3 = st.columns(1)
 # Criar uma coluna para o terceiro cartão
-#create_card(col3, meusdados[2]['titulo'], meusdados[2]['conteudo'])
-create_card(col3, meusdados['respostas'][2]['titulo'], meusdados['respostas'][2]['conteudo'])
+create_card(col3, meusdados[2]['titulo'], meusdados[2]['conteudo'])
+#create_card(col3, meusdados['respostas'][2]['titulo'], meusdados['respostas'][2]['conteudo'])
 
 
