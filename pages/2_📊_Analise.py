@@ -146,8 +146,8 @@ meusdados = respondendo['respostas']
 
 # Função para criar um card
 def create_card(col, titulo, conteudo):
-card_html = f"""
-    <style>
+    card_html = f"""
+        <style>
         .card {{
             border-radius: 10px;
             padding: 20px;
