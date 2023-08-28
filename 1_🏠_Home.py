@@ -14,6 +14,14 @@ st.set_page_config(
     layout="wide"
 )
 
+hide_st_style = """
+            <style>
+            #MainMenu {visibility: hidden;}
+            footer {visibility: hidden;}
+            </style>
+            """
+st.markdown(hide_st_style, unsafe_allow_html=True)
+
 data = pd.read_csv("riochamagunga.csv", encoding="ISO-8859-1", sep=';')
 print(data.head())
 
