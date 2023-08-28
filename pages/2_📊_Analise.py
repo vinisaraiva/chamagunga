@@ -1,4 +1,4 @@
-tyimport streamlit as st
+import streamlit as st
 from PIL import Image
 import pandas as pd
 import plotly.graph_objects as go
