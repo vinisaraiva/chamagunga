@@ -178,14 +178,13 @@ create_card(col2, meusdados[1]['titulo'], meusdados[1]['conteudo'])
 
 # Inserir um espaço vazio
 st.write("")
-st.write("")
 # Display the AI response
 st.subheader('Análise do gráfico')
 
 col3, col4 = st.columns([99, 1])
 
 # Criar uma coluna para o terceiro cartão
-create_card(col3, meusdados[2]['conteudo'])
+create_card(col3, meusdados[2]['titulo'], meusdados[2]['conteudo'])
 
 
 
