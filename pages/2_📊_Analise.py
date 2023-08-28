@@ -172,7 +172,7 @@ col1.markdown(f"""
         <div class="card-content">{meusdados[0]['conteudo']}</div>
     </div>
     """, unsafe_allow_html=True)
-
+st.write("")
 # Card 2
 col2.markdown(f"""
     <div class="card">
