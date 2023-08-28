@@ -182,9 +182,10 @@ st.write("")
 # Display the AI response
 st.subheader('Análise do gráfico')
 
-col3 = st.columns(1)
+col3, col4 = st.columns([99, 1])
+
 # Criar uma coluna para o terceiro cartão
-col3.write(col3, meusdados[2]['conteudo'])
+create_card(col3, meusdados[2]['titulo'], meusdados[2]['conteudo'])
 
 
 
