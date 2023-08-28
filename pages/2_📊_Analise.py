@@ -173,6 +173,8 @@ col1.markdown(f"""
     </div>
     """, unsafe_allow_html=True)
 st.write("")
+st.empty()
+
 # Card 2
 col2.markdown(f"""
     <div class="card">
