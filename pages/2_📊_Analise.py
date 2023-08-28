@@ -142,8 +142,6 @@ completion = openai.ChatCompletion.create(
 response = json.loads(completion['choices'][0]['message']['content'])
 respondendo = response
 meusdados = respondendo['respostas']
-st.write (meusdados)
-
 
 # Configuração de estilo
 st.markdown("""
