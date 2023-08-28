@@ -140,8 +140,7 @@ st.subheader('Análise inicial')
 #st.write(completion['choices'][0]['message']['content'])
 # Extrair as respostas do objeto 'content'
 
-response = json.loads(response_string)
-st.write(response_string)
+response = json.loads(completion['choices'][0]['message']['content'])
 respondendo = response(completion['choices'][0]['message']['content'])
 st.write(respondendo)
 meusdados = respondendo['respostas']
