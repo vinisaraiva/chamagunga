@@ -140,8 +140,8 @@ completion = openai.ChatCompletion.create(
 # Extrair as respostas do objeto 'content'
 
 response = json.loads(completion['choices'][0]['message']['content'])
-meusdados = response
-#meusdados = respondendo['respostas']
+respondendo = response
+meusdados = respondendo['respostas']
 
 # Função para criar um card
 def create_card(col, titulo, conteudo):
