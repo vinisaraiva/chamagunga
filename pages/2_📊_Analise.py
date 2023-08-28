@@ -155,11 +155,11 @@ def create_card(col, titulo, conteudo):
             background-color: #f0f0f0;
         }}
         .card-title {{
-            font-size: 14px;
+            font-size: 18px;
             font-weight: bold;
         }}
         .card-content {{
-            font-size: 12px;
+            font-size: 16px;
         }}
     </style>
     <div class="card">
