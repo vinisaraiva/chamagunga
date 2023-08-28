@@ -146,8 +146,28 @@ meusdados = respondendo['respostas']
 
 # Função para criar um card
 def create_card(col, titulo, conteudo):
-    col.write('# ' + titulo)
-    col.write(conteudo)
+card_html = f"""
+    <style>
+        .card {{
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.1);
+            background-color: #f0f0f0;
+        }}
+        .card-title {{
+            font-size: 14px;
+            font-weight: bold;
+        }}
+        .card-content {{
+            font-size: 12px;
+        }}
+    </style>
+    <div class="card">
+        <div class="card-title">{titulo}</div>
+        <div class="card-content">{conteudo}</div>
+    </div>
+    """
+    col.markdown(card_html, unsafe_allow_html=True)
 
 
 # Criação de duas colunas para a primeira linha
