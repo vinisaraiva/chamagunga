@@ -141,7 +141,9 @@ st.subheader('Análise inicial')
 # Extrair as respostas do objeto 'content'
 
 response = json.loads(response_string)
+st.write(response_string)
 respondendo = response(completion['choices'][0]['message']['content'])
+st.write(respondendo)
 meusdados = respondendo['respostas']
 
 # Função para criar um card
