@@ -184,6 +184,6 @@ st.subheader('Análise do gráfico')
 
 col3 = st.columns(1)
 # Criar uma coluna para o terceiro cartão
-st.write(col3, meusdados[2]['conteudo'])
+st.write(col3, meusdados[2]['titulo'], meusdados[2]['conteudo'])
 
 
