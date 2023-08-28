@@ -143,48 +143,62 @@ response = json.loads(completion['choices'][0]['message']['content'])
 respondendo = response
 meusdados = respondendo['respostas']
 st.write (meusdados)
-# Função para criar um card
-def create_card(col, titulo, conteudo):
-    card_html = f"""
-        <style>
-        .card {{
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.1);
-            background-color: #f0f0f0;
-        }}
-        .card-title {{
-            font-size: 18px;
-            font-weight: bold;
-        }}
-        .card-content {{
-            font-size: 16px;
-        }}
+
+
+# Configuração de estilo
+st.markdown("""
+    <style>
+    .card {
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.1);
+        background-color: #f0f0f0;
+    }
+    .card-title {
+        font-size: 18px;
+        font-weight: bold;
+    }
+    .card-content {
+        font-size: 16px;
+    }
     </style>
-    <div class="card">
-        <div class="card-title">{titulo}</div>
-        <div class="card-content">{conteudo}</div>
-    </div>
-    """
-    col.markdown(card_html, unsafe_allow_html=True)
+    """, unsafe_allow_html=True)
 
-
-# Criação de duas colunas para a primeira linha
+# Crie uma linha com dois cards
 col1, col2 = st.columns(2)
 
-# Adicionar os dois primeiros cards na primeira linha
-create_card(col1, meusdados[0]['titulo'], meusdados[0]['conteudo'])
-create_card(col2, meusdados[1]['titulo'], meusdados[1]['conteudo'])
+# Card 1
+col1.markdown(f"""
+    <div class="card">
+        <div class="card-title">{meusdados[0]['titulo']}</div>
+        <div class="card-content">{meusdados[0]['conteudo']}</div>
+    </div>
+    """, unsafe_allow_html=True)
 
-# Inserir um espaço vazio
-st.write("")
-# Display the AI response
-st.subheader('Análise do gráfico')
+# Card 2
+col2.markdown(f"""
+    <div class="card">
+        <div class="card-title">{meusdados[1]['titulo']}</div>
+        <div class="card-content">{meusdados[1]['conteudo']}</div>
+    </div>
+    """, unsafe_allow_html=True)
 
-col3, col4 = st.columns([99, 1])
+# Crie um espaço vazio
+st.empty()
 
-# Criar uma coluna para o terceiro cartão
-create_card(col3, meusdados[2]['titulo'], meusdados[2]['conteudo'])
+# Crie uma linha com um card
+col3 = st.columns(1)
+
+# Card 3
+col3[0].markdown(f"""
+    <div class="card">
+        <div class="card-title">{meusdados[2]['titulo']}</div>
+        <div class="card-content">{meusdados[2]['conteudo']}</div>
+    </div>
+    """, unsafe_allow_html=True)
+
+
+
 
 
 
