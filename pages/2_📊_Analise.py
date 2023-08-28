@@ -135,8 +135,7 @@ completion = openai.ChatCompletion.create(
     ]
 )
 
-# Display the AI response
-st.subheader('Análise inicial')
+
 #st.write(completion['choices'][0]['message']['content'])
 # Extrair as respostas do objeto 'content'
 
@@ -180,8 +179,11 @@ create_card(col2, meusdados[1]['titulo'], meusdados[1]['conteudo'])
 # Inserir um espaço vazio
 st.write("")
 st.write("")
-col3, col4 = st.columns([98, 2])
+# Display the AI response
+st.subheader('Análise inicial')
+
+col3 = st.columns(1)
 # Criar uma coluna para o terceiro cartão
-create_card(col3, meusdados[2]['titulo'], meusdados[2]['conteudo'])
+st.write(col3, meusdados[2]['titulo'], meusdados[2]['conteudo'])
 
 
