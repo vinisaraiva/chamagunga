@@ -184,7 +184,7 @@ st.subheader('Análise do gráfico')
 
 col3 = st.columns(1)
 # Criar uma coluna para o terceiro cartão
-#create_card(col3, meusdados[2]['titulo'], meusdados[2]['conteudo'])
+create_card(col3, meusdados[2]['titulo'], meusdados[2]['conteudo'])
 create_card(col3, meusdados['respostas'][2]['titulo'], meusdados['respostas'][2]['conteudo'])
 
 
