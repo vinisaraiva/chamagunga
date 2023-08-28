@@ -177,8 +177,12 @@ col1, col2 = st.columns(2)
 create_card(col1, meusdados[0]['titulo'], meusdados[0]['conteudo'])
 create_card(col2, meusdados[1]['titulo'], meusdados[1]['conteudo'])
 
-# Adicionar o terceiro card na segunda linha
-col3 = st.empty()
+# Inserir um espaço vazio
+st.write("")
+st.write("")
+
+# Criar uma coluna para o terceiro cartão
+col3 = st.column(1)
 create_card(col3, meusdados[2]['titulo'], meusdados[2]['conteudo'])
 
 
