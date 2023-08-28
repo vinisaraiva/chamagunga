@@ -143,7 +143,7 @@ st.subheader('Análise inicial')
 response = json.loads(completion['choices'][0]['message']['content'])
 respondendo = response
 meusdados = respondendo['respostas']
-st.write(meusdados['respostas'][0])
+st.write(meusdados[0])
 # Função para criar um card
 def create_card(col, titulo, conteudo):
     col.write('## ' + titulo)
