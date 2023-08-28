@@ -185,8 +185,8 @@ col2.markdown(f"""
 
 # Crie um espaço vazio
 st.empty()
-st.empty()
-st.empty()
+st.write("")
+st.write("")
 
 # Crie uma linha com um card
 col3 = st.columns(1)
