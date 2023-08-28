@@ -116,46 +116,31 @@ st.plotly_chart(fig, use_container_width=True)
 parameter_values = filtered_data[y_column].tolist()
 conama_values = parameter_ranges[selected_parameter]
 
-pergunta_composta = (
-    "O que é {selected_parameter} <END> ?"
-    "Qual a importância do {selected_parameter} para as águas de um rio? <END> "
-    "Qual análise pode ser feita quando um rio tem dois pontos, um com pH de 5.9 e outro com pH de 7, "
-    "quando os índices do CONAMA indicam que para água doce o nível mínimo seria 6.1 e o máximo 8?"
-)
-resposta_composta = openai.Completion.create(engine="gpt-3.5-turbo", prompt=pergunta_composta)
+#pergunta_composta = (
+#    "O que é {selected_parameter} <END> ?"
+ #   "Qual a importância do {selected_parameter} para as águas de um rio? <END> "
+  #  "Qual análise pode ser feita quando um rio tem dois pontos, um com pH de 5.9 e outro com pH de 7, "
+   # "quando os índices do CONAMA indicam que para água doce o nível mínimo seria 6.1 e o máximo 8?"
+#)
+#resposta_composta = openai.Completion.create(engine="gpt-3.5-turbo", prompt=pergunta_composta)
 
 # Make the OpenAI API call for analysis
-#completion = openai.ChatCompletion.create(
- #   model="gpt-3.5-turbo",
-  #  messages=[
-   #     {"role": "user",
-      #      "content": f'Responda separando por paragrafos sendo que cada paragrafo o titulo estara em uma fonte maior e em negrito. O primeiro paragrafo o titulo é "Você sabe o que é {selected_parameter}<END> ?" e após o titulo  pule uma linha e fale sobre esse parametro de forma curta explicando-o. O segundo paragrafo o titulo é: "Qual a importancia do {selected_parameter}<END> ?", em seguida pule uma linha e fale a importancia desse parametro em um rio. No terceiro paragrafo o titulo é Analise dos dados, após o titulo pule uma linha e faça uma analise dos dados utilizando as informacoes obtidas com a coleta da agua desse rio, foi coletada agua para analise em 6 pontos diferentes do Rio Chamagunga. O parametro selecionado é {selected_parameter}, o valor encontrado foi {parameter_values}. De acordo com o CONAMA, os valores ideais para esse paramentro, fica entre {conama_values[0]} e {conama_values[1]}. lembrando que deve citar apenas os valores dos pontos selecinados, da seguinte forma: ponto: valor, com o nome de cada ponto em negrito'}
-    #]
-#)
+completion = openai.ChatCompletion.create(
+    model="gpt-3.5-turbo",
+    messages=[
+       {"role": "user",
+            "content": f'Responda separando por paragrafos sendo que cada paragrafo o titulo estara em uma fonte maior e em negrito. O primeiro paragrafo o titulo é "Você sabe o que é {selected_parameter}<END> ?" e após o titulo  pule uma linha e fale sobre esse parametro de forma curta explicando-o. O segundo paragrafo o titulo é: "Qual a importancia do {selected_parameter}<END> ?", em seguida pule uma linha e fale a importancia desse parametro em um rio. No terceiro paragrafo o titulo é Analise dos dados, após o titulo pule uma linha e faça uma analise dos dados utilizando as informacoes obtidas com a coleta da agua desse rio, foi coletada agua para analise em 6 pontos diferentes do Rio Chamagunga. O parametro selecionado é {selected_parameter}, o valor encontrado foi {parameter_values}. De acordo com o CONAMA, os valores ideais para esse paramentro, fica entre {conama_values[0]} e {conama_values[1]}. lembrando que deve citar apenas os valores dos pontos selecinados, da seguinte forma: ponto: valor, com o nome de cada ponto em negrito. A resposta deve vir no formato json, com a seguinte estrutura:{"respostas":{
+     “id_resposta”: “id da resposta”,
+     “titulo”: “escreva aqui o titulo”,
+     “conteudo”:"escreva aqui a resposta"}
+} '}
+    ]
+)
 
 # Display the AI response
 st.subheader('Análise inicial')
-# st.write(completion['choices'][0]['message']['content'])
+st.write(completion['choices'][0]['message']['content'])
 
 
-
-# Agora você tem a resposta completa
-resposta_completa = resposta_composta['choices'][0]['text'].strip()
-
-# Você pode separar as respostas usando o marcador
-respostas_separadas = resposta_completa.split('<END>')
-
-# Dividir a pergunta_composta em perguntas individuais
-perguntas_individuais = pergunta_composta.split(' <END> ')
-
-# Exibir as perguntas e respostas
-print("Pergunta 1:", perguntas_individuais[0])
-print("Resposta 1:", respostas_separadas[0].strip())
-print("\n")
-print("Pergunta 2:", perguntas_individuais[1])
-print("Resposta 2:", respostas_separadas[1].strip())
-print("\n")
-print("Pergunta 3:", perguntas_individuais[2])
-print("Resposta 3:", respostas_separadas[2].strip())
 
 
