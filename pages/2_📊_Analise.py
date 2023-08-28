@@ -137,7 +137,7 @@ completion = openai.ChatCompletion.create(
 st.subheader('Análise inicial')
 #st.write(completion['choices'][0]['message']['content'])
 # Extrair as respostas do objeto 'content'
-respostas = content['respostas']
+respondendo = content['respostas']
 
 # Função para criar um card
 def create_card(col, titulo, conteudo):
@@ -149,11 +149,11 @@ def create_card(col, titulo, conteudo):
 col1, col2 = st.columns(2)
 
 # Adicionar os dois primeiros cards na primeira linha
-create_card(col1, data['respostas'][0]['titulo'], data['respostas'][0]['conteudo'])
-create_card(col2, data['respostas'][1]['titulo'], data['respostas'][1]['conteudo'])
+create_card(col1, respondendo['respostas'][0]['titulo'], data['respostas'][0]['conteudo'])
+create_card(col2, respondendo['respostas'][1]['titulo'], data['respostas'][1]['conteudo'])
 
 # Adicionar o terceiro card na segunda linha
 col3 = st.empty()
-create_card(col3, data['respostas'][2]['titulo'], data['respostas'][2]['conteudo'])
+create_card(col3, respondendo['respostas'][2]['titulo'], data['respostas'][2]['conteudo'])
 
 
