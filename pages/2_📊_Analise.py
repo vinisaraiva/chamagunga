@@ -185,7 +185,7 @@ st.empty()
 # Card 2
 col2.markdown(f"""
     <div class="card">
-        <div class="card-title">exp = st.expander("{meusdados[1]['titulo']}")</div>
+        <div class="card-title">{meusdados[1]['titulo']}</div>
         <div class="card-content">{meusdados[1]['conteudo']}</div>
     </div>
     """, unsafe_allow_html=True)
