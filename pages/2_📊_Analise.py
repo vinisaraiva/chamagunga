@@ -38,7 +38,7 @@ selected_points = st.sidebar.multiselect(
 
 # SelectBox to choose between parameters
 selected_parameter = st.sidebar.selectbox('Selecione o Parametero a ser analisado', options=[
-                                          'PH', 'CONDUTIVIDADE', 'TURBIDEZ (NTU)', 'TEMPERATURA'])
+                                          'pH', 'CONDUTIVIDADE', 'TURBIDEZ (NTU)', 'TEMPERATURA'])
 
 st.sidebar.write("---")
 st.sidebar.success(
@@ -50,7 +50,7 @@ filtered_data = data[data['PONTOS'].isin(selected_points)]
 
 # Define dictionaries with minimum and maximum values for each parameter
 parameter_ranges = {
-    'PH': (6, 9),
+    'pH': (6, 9),
     'CONDUTIVIDADE': (115, 300),
     'TURBIDEZ (NTU)': (7.5, 11.2),
     'TEMPERATURA': (23.1, 25.4)
