@@ -50,7 +50,7 @@ filtered_data = data[data['PONTOS'].isin(selected_points)]
 
 # Define dictionaries with minimum and maximum values for each parameter
 parameter_ranges = {
-    'PH': (5.9, 9),
+    'PH': (6, 9),
     'CONDUTIVIDADE': (115, 300),
     'TURBIDEZ (NTU)': (7.5, 11.2),
     'TEMPERATURA': (23.1, 25.4)
