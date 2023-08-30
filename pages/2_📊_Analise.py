@@ -13,7 +13,7 @@ import json
 
 
 st.set_page_config(
-    page_title="Analise dos Dados Coletados",
+    page_title="Análise dos Dados Coletados",
     page_icon="📑",
     layout="wide"
 )
