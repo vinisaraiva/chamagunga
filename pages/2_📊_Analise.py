@@ -59,8 +59,8 @@ parameter_ranges = {
 
 # Update the graph based on the selected parameter and points
 y_column = selected_parameter
-title = f'Valores de {selected_parameter()} do(s) ponto(s) selecionado(s)'
-yaxis_title = selected_parameter()
+title = f'Valores de {selected_parameter.strip()} do(s) ponto(s) selecionado(s)'
+yaxis_title = selected_parameter.strip()
 #maiusculo
 #title = f'Valores de {selected_parameter.capitalize()} do(s) ponto(s) selecionado(s)'
 #yaxis_title = selected_parameter.capitalize()
