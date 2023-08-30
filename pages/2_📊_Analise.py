@@ -59,8 +59,11 @@ parameter_ranges = {
 
 # Update the graph based on the selected parameter and points
 y_column = selected_parameter
-title = f'Valores de {selected_parameter.capitalize()} do(s) ponto(s) selecionado(s)'
-yaxis_title = selected_parameter.capitalize()
+title = f'Valores de {selected_parameter()} do(s) ponto(s) selecionado(s)'
+yaxis_title = selected_parameter()
+#maiusculo
+#title = f'Valores de {selected_parameter.capitalize()} do(s) ponto(s) selecionado(s)'
+#yaxis_title = selected_parameter.capitalize()
 
 # Create the bar chart using Plotly Express
 fig = px.bar(filtered_data, x='PONTOS', y=y_column, title=title)
