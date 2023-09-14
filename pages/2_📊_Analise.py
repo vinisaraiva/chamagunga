@@ -52,7 +52,7 @@ filtered_data = data[data['PONTOS'].isin(selected_points)]
 parameter_ranges = {
     'pH': (6, 9),
     'CONDUTIVIDADE': (115, 300),
-    'TURBIDEZ (NTU)': (7.5, 11.2),
+    'TURBIDEZ (NTU)': (0, 100),
     'TEMPERATURA': (23.1, 25.4)
 }
 
