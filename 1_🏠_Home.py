@@ -14,6 +14,19 @@ st.set_page_config(
     layout="wide"
 )
 
+st.markdown("""
+    <style>
+        .reportview-container {
+            margin-top: -2em;
+        }
+        #MainMenu {visibility: hidden;}
+        .stDeployButton {display:none;}
+        footer {visibility: hidden;}
+        header {visibility: hidden;}
+        #stDecoration {display:none;}
+    </style>
+""", unsafe_allow_html=True)
+
 hide_st_style = """
             <style>
             #MainMenu {visibility: hidden;}
