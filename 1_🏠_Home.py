@@ -59,7 +59,7 @@ st.image (imagem, caption='')
 
 st.sidebar.write("---")
 st.sidebar.info(
-    "Desenvolvido por Vinicius Saraiva junto ao Grupo de Pesquisa NuPEcoTropic")
+    "A plataforma que monitora a qualidade da água do rio que nos abastece não é apenas um recurso técnico, é a sentinela silenciosa que guarda a pureza da vida que flui através de nossas torneiras, garantindo a saúde e a segurança de nossa comunidade a cada gota consumida.")
 
 # Multi-select checkbox to choose points to display
 #selected_points = st.sidebar.multiselect(
