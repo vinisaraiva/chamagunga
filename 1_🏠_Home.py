@@ -57,7 +57,6 @@ st.markdown("""
 imagem = Image.open('banner.png')
 st.image (imagem, caption='')
 
-st.sidebar.write("---")
 st.sidebar.info(
     "A plataforma que monitora a qualidade da água do rio que nos abastece não é apenas um recurso técnico, é a sentinela silenciosa que guarda a pureza da vida que flui através de nossas torneiras, garantindo a saúde e a segurança de nossa comunidade a cada gota consumida.")
 
