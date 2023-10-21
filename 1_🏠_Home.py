@@ -59,7 +59,7 @@ st.sidebar.success(
 
 
 with st.container():
-    st.subheader("Análise e Monitoramento da Qualidade da Água")
+    st.subheader("Contexto")
     st.write("A análise e monitoramento da qualidade da água são importantes para reduzir os efeitos das atividades humanas sobre os recursos hídricos. Neste estudo, o objetivo é analisar os principais parâmetros físico-químicos da qualidade da água. Os dados são coletados por populares treinados para utilizacao correta de uma sonda multiparamêtros e transmissão dos dados coletados.")
     st.write("Atualmente monitoramos os rios: Rio dos Mangues, Rio Utinga e Rio Buranhém, todos no perímetro urbano. Os parâmetros analisados foram:")
 
