@@ -26,6 +26,25 @@ data = pd.read_csv("riochamagunga.csv", encoding="ISO-8859-1", sep=';')
 print(data.head())
 
 
+st.set_option('deprecation.showPyplotGlobalUse', False)
+st.markdown("""
+        <style>
+               .block-container {
+                    padding-top: 0rem;
+                    padding-bottom: 0rem;
+                    padding-left: 0.5rem;
+                    padding-right: 0rem;
+    
+                }
+                
+                
+        </style>
+        """, unsafe_allow_html=True)
+
+imagem = Image.open('banner.png')
+st.image (imagem, caption='')
+
+
 # Multi-select checkbox to choose points to display
 selected_points = st.sidebar.multiselect(
     'Selecione os Pontos', options=data['PONTOS'].tolist(), default=data['PONTOS'].tolist(), disabled=True)
@@ -36,14 +55,13 @@ selected_parameter = st.sidebar.selectbox('Selecione o Parametero a ser analisad
 
 st.sidebar.write("---")
 st.sidebar.success(
-    "Desenvolvido por Vinicius Saraiva para a disciplina: ANÁLISE E MONITORAMENTO DE ECOSSISTEMAS AQUÁTICOS")
+    "Desenvolvido por Vinicius Saraiva junto ao Grupo de Pesquisa NuPEcoTropic")
 
 
 with st.container():
-    st.title("Rio Chamagunga")
     st.subheader("Análise e Monitoramento da Qualidade da Água")
-    st.write("A análise e monitoramento da qualidade da água são importantes para reduzir os efeitos das atividades humanas sobre os recursos hídricos. Neste estudo, o objetivo é avaliar os principais parâmetros físico-químicos e biológicos da qualidade da água do rio Chamagunga, localizado em Porto Seguro - BA.")
-    st.write("As amostras foram coletadas em seis pontos diferentes do rio, todos no perímetro urbano. Os parâmetros analisados foram:")
+    st.write("A análise e monitoramento da qualidade da água são importantes para reduzir os efeitos das atividades humanas sobre os recursos hídricos. Neste estudo, o objetivo é analisar os principais parâmetros físico-químicos da qualidade da água. Os dados são coletados por populares treinados para utilizacao correta de uma sonda multiparamêtros e transmissão dos dados coletados.")
+    st.write("Atualmente monitoramos os rios: Rio dos Mangues, Rio Utinga e Rio Buranhém, todos no perímetro urbano. Os parâmetros analisados foram:")
 
 col1, col2, col3 = st.columns(3)
 with col1:
@@ -62,5 +80,5 @@ with col3:
     st.write("- Clorofila-a")
     st.write("- Sólidos Dissolvidos Totais (SDT)")
     st.write("- Demanda Bioquímica de Oxigênio (DBO)")
-image = Image.open('mapa.png')
-st.image(image, caption='Mapa do Rio Chamagunga - Porto Seguro - Ba')
+image = Image.open('buranhem.jpeg')
+st.image(image, caption='Vista aérea do Rio Buranhém - Porto Seguro - Ba')

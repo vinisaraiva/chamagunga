@@ -1,12 +1,14 @@
 import streamlit as st
 from PIL import Image
 import pandas as pd
+import utils as utl
 import plotly.graph_objects as go
 import plotly.express as px
 import plotly.figure_factory as ff
 import requests
 import openai
 import json
+import datetime
 
 
 
@@ -18,6 +20,29 @@ st.set_page_config(
     layout="wide"
 )
 
+
+st.set_option('deprecation.showPyplotGlobalUse', False)
+st.markdown("""
+        <style>
+               .block-container {
+                    padding-top: 0rem;
+                    padding-bottom: 0rem;
+                    padding-left: 0.5rem;
+                    padding-right: 0rem;
+    
+                }
+                
+                
+        </style>
+        """, unsafe_allow_html=True)
+
+imagem = Image.open('banner.png')
+st.image (imagem, caption='')
+
+
+
+
+
 hide_st_style = """
             <style>
             #MainMenu {visibility: hidden;}
@@ -27,9 +52,39 @@ hide_st_style = """
 st.markdown(hide_st_style, unsafe_allow_html=True)
 
 st.title("Analisando parâmetros físicos da água")
-st.write("Rio Chamagunga")
 
 data = pd.read_csv("riochamagunga.csv", encoding="ISO-8859-1", sep=';')
+
+
+
+# SelectBox to choose between parameters
+selected_rios = st.sidebar.selectbox('Escolha o rio a ser consultado', options=[
+                                          'RIO DOS MANGUES', 'RIO BURANHÉM', 'RIO UTINGA'])
+
+nomerio = selected_rios
+st.write("Rio selecionado: ",nomerio)
+
+
+# Cria um container
+with st.sidebar.container():
+         
+    seletor = st.sidebar.radio("Determine o período:", ("Apenas uma Data", "Intervalo de Datas"))
+
+    # Seletor de data para escolher apenas uma data
+    if seletor == "Apenas uma Data":
+        selected_date = st.sidebar.date_input("Selecione uma data:")
+    
+   # st.sidebar.write("Você selecionou:", selected_date)
+    # Seletor de datas para escolher um intervalo de datas
+    if seletor == "Intervalo de Datas":
+        start_date = st.sidebar.date_input("Data inicial:")
+        end_date = st.sidebar.date_input("Data final:")
+
+      #  st.sidebar.write("Data inicial:", start_date)
+       # st.sidebar.write("Data final:", end_date)
+
+ # Fecha a div
+    st.sidebar.divider()
 
 
 # Multi-select checkbox to choose points to display
@@ -37,12 +92,12 @@ selected_points = st.sidebar.multiselect(
     'Selecione os Pontos', options=data['PONTOS'].tolist(), default=data['PONTOS'].tolist())
 
 # SelectBox to choose between parameters
-selected_parameter = st.sidebar.selectbox('Selecione o Parametero a ser analisado', options=[
+selected_parameter = st.sidebar.selectbox('Selecione o Parametro a ser analisado', options=[
                                           'pH', 'CONDUTIVIDADE', 'TURBIDEZ (NTU)', 'TEMPERATURA'])
 
 st.sidebar.write("---")
 st.sidebar.success(
-    "Desenvolvido por Vinicius Saraiva para a disciplina: ANÁLISE E MONITORAMENTO DE ECOSSISTEMAS AQUÁTICOS :pencil: ")
+    "Desenvolvido por Vinicius Saraiva junto ao Grupo de Pesquisa NuPEcoTropic")
 
 
 # Filter the data based on the selected points
