@@ -26,6 +26,7 @@ st.markdown("""
         #MainMenu {visibility: hidden;}
         .stDeployButton {display:none;}
         footer {visibility: hidden;}
+        header {visibility: hidden;}
         #stDecoration {display:none;}
     </style>
 """, unsafe_allow_html=True)
@@ -47,10 +48,6 @@ st.markdown("""
 
 imagem = Image.open('banner.png')
 st.image (imagem, caption='')
-
-
-
-
 
 hide_st_style = """
             <style>
