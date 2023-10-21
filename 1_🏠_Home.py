@@ -57,13 +57,16 @@ st.markdown("""
 imagem = Image.open('banner.png')
 st.image (imagem, caption='')
 
+st.sidebar.write("---")
+st.sidebar.info(
+    "Desenvolvido por Vinicius Saraiva junto ao Grupo de Pesquisa NuPEcoTropic")
 
 # Multi-select checkbox to choose points to display
-selected_points = st.sidebar.multiselect(
-    'Selecione os Pontos', options=data['PONTOS'].tolist(), default=data['PONTOS'].tolist(), disabled=True)
+#selected_points = st.sidebar.multiselect(
+ #   'Selecione os Pontos', options=data['PONTOS'].tolist(), default=data['PONTOS'].tolist(), disabled=True)
 
 # SelectBox to choose between parameters
-selected_parameter = st.sidebar.selectbox('Selecione o Parametero a ser analisado', options=[
+#selected_parameter = st.sidebar.selectbox('Selecione o Parametero a ser analisado', options=[
                                           'PH', 'CONDUTIVIDADE', 'TURBIDEZ (NTU)', 'TEMPERATURA'], disabled=True)
 
 st.sidebar.write("---")
