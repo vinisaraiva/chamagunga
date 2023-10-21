@@ -67,7 +67,7 @@ st.sidebar.info(
 
 # SelectBox to choose between parameters
 #selected_parameter = st.sidebar.selectbox('Selecione o Parametero a ser analisado', options=[
-                                          'PH', 'CONDUTIVIDADE', 'TURBIDEZ (NTU)', 'TEMPERATURA'], disabled=True)
+     #                                     'PH', 'CONDUTIVIDADE', 'TURBIDEZ (NTU)', 'TEMPERATURA'], disabled=True)
 
 st.sidebar.write("---")
 st.sidebar.success(
