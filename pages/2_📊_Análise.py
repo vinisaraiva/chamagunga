@@ -65,7 +65,7 @@ data = pd.read_csv("riochamagunga.csv", encoding="ISO-8859-1", sep=';')
 
 # SelectBox to choose between parameters
 selected_rios = st.sidebar.selectbox('Escolha o rio a ser consultado', options=[
-                                          'RIO DOS MANGUES', 'RIO BURANHÉM', 'RIO UTINGA'])
+                                          'RIO DOS MANGUES', 'RIO BURANHÉM', 'RIO CHAMAGUNGA', 'RIO UTINGA'])
 
 nomerio = selected_rios
 st.write("Rio selecionado: ",nomerio)
